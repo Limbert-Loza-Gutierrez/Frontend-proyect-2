@@ -8,6 +8,7 @@ import { MdDriveFileRenameOutline, MdEmail, MdPassword } from "react-icons/md";
 import { GrUserWorker } from "react-icons/gr";
 import CustomButton from "../../customs/CustomButton/CustomButton"
 import { AiOutlineFieldNumber } from "react-icons/ai";
+import { BsClipboardPulse, BsPersonBadge } from "react-icons/bs";
 // import Alert from '@mui/material/Alert';
 
 const UserCreate = () => {
@@ -22,6 +23,9 @@ const UserCreate = () => {
         correo: "",
         contraseña: "",
         tipoUsuario: "",
+        especialidad: "",
+        unidad: "",
+        
     }
 
     const [valuesForm, setValuesForm] = useState(initData);
@@ -56,7 +60,7 @@ const UserCreate = () => {
             ...valuesForm,
             id: objects.length + 1,
         };
-        if (newValues.nombre !== "" && newValues.apellidoPaterno !== "" && newValues.apellidoMaterno !== "" && newValues.correo !== "" && newValues.contraseña !== "" && newValues.tipoUsuario !== "") {
+        if (newValues.nombre !== "" && newValues.apellidoPaterno !== "" && newValues.apellidoMaterno !== "" && newValues.correo !== "" && newValues.contraseña !== "" && newValues.tipoUsuario !== "" && newValues.especialidad !== "" && newValues.unidad !== "") {
             setValuesForm(newValues);
             objects.push(newValues);
         }
@@ -136,6 +140,24 @@ const UserCreate = () => {
                         value={ valuesForm.tipoUsuario }
                         onChange={ handleChange }
                         name="tipoUsuario"
+                        type="text"
+                    />
+                    <CustomInput
+                        icon={ <BsClipboardPulse /> }
+                        label="Especialidad"
+                        placeholder="Ingrese su especialidad"
+                        value={ valuesForm.especialidad }
+                        onChange={ handleChange }
+                        name="especialidad"
+                        type="text"
+                    />
+                    <CustomInput
+                        icon={ <BsPersonBadge /> }
+                        label="Unidad"
+                        placeholder="Ingrese su unidad"
+                        value={ valuesForm.unidad }
+                        onChange={ handleChange }
+                        name="unidad"
                         type="text"
                     />
 
